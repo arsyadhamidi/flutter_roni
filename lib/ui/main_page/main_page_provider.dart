@@ -10,16 +10,15 @@ import 'package:roni_api/ui/dashboard/dashboard_page.dart';
 import 'package:roni_api/ui/splashscreen/splashscreen_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class MainPageProvider extends ChangeNotifier{
-
-  MainPageProvider(BuildContext context){
+class MainPageProvider extends ChangeNotifier {
+  MainPageProvider(BuildContext context) {
     getDataUser(context);
   }
 
   int selectedIndex = 0;
-  Future<void> getDataUser(BuildContext context) async{
+  Future<void> getDataUser(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var email =  prefs.getString('dataUser');
+    var email = prefs.getString('dataUser');
     if (email != null) {
       dataGlobal.data = modelUserFromJson(email);
     } else {
@@ -27,7 +26,7 @@ class MainPageProvider extends ChangeNotifier{
     }
   }
 
-  void onItemTapped(int index){
+  void onItemTapped(int index) {
     selectedIndex = index;
     notifyListeners();
   }
@@ -36,5 +35,4 @@ class MainPageProvider extends ChangeNotifier{
     DashboardPageView(),
     AkunPageView(),
   ];
-
 }

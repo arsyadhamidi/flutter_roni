@@ -33,7 +33,7 @@ class KepatuhanProvider extends ChangeNotifier{
       final response = await http.post(
         Uri.parse(ApiConfig.url + 'pernyataan/transaksi'),
         body: jsonEncode({
-          'status': '1',
+          'status': 1,
         }),
         headers: {
           'Accept': 'application/json',
@@ -77,18 +77,23 @@ class KepatuhanProvider extends ChangeNotifier{
 
   String get usersIdStatus => _usersIdStatus;
 
-  Future<void> checkDataKepatuhan() async{
-    try{
+  Future<void> checkDataKepatuhan() async {
+    try {
       final response = await NetworkProvider().getDataKepatuhan();
-      _usersIdStatus = response?.data?.status.toString() ?? '';
-      if (_usersIdStatus == '1') {
+      _usersIdStatus = response?.data?.status?.toString() ?? ''; // memastikan status menjadi string jika perlu
+
+      if (_usersIdStatus == '1') {  // Pastikan ini sesuai dengan tipe yang diterima, jika int maka gunakan if (_usersIdStatus == 1)
         _setujuTxt = true;
+      } else {
+        _setujuTxt = false;
       }
-      notifyListeners();
-    }catch(e){
+
+      notifyListeners();  // Pastikan untuk memanggil notifyListeners setelah perubahan status
+    } catch (e) {
       print(e);
     }
   }
+
 
 
 }

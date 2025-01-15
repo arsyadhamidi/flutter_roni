@@ -50,19 +50,14 @@ class DataContent {
     "parent": parent?.toJson(),
     "child": child == null ? [] : List<dynamic>.from(child!.map((x) => x.toJson())),
   };
-
-  @override
-  String toString() {
-    return 'DataContent(parent: $parent, child: $child)';
-  }
 }
 
 class Parent {
   int? id;
-  String? statusenabled;
-  String? contentparentid;
+  int? statusenabled;
+  int? contentparentid;
   String? description;
-  String? sequence;
+  int? sequence;
   dynamic createdAt;
   dynamic updatedAt;
 
@@ -95,10 +90,4 @@ class Parent {
     "created_at": createdAt,
     "updated_at": updatedAt,
   };
-
-  @override
-  String toString() {
-    return 'Parent(id: $id, statusenabled: $statusenabled, contentparentid: $contentparentid, description: $description, sequence: $sequence, createdAt: $createdAt, updatedAt: $updatedAt)';
-  }
 }
-

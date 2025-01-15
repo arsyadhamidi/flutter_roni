@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final modelPemantauan = modelPemantauanFromJson(jsonString);
-
 import 'dart:convert';
 
 ModelPemantauan modelPemantauanFromJson(String str) => ModelPemantauan.fromJson(json.decode(str));
@@ -54,15 +50,15 @@ class DataPemantauan {
 
 class Child {
   int? id;
-  String? statusenabled;
-  String? pemantauanparentid;
+  int? statusenabled;
+  int? pemantauanparentid;
   String? description;
-  String? sequence;
-  dynamic createdAt;
-  dynamic updatedAt;
-  String? norec;
-  String? status;
-  String? userid;
+  int? sequence;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  int? norec;
+  int? userid;
+  int? status;
 
   Child({
     this.id,
@@ -73,8 +69,8 @@ class Child {
     this.createdAt,
     this.updatedAt,
     this.norec,
-    this.status,
     this.userid,
+    this.status,
   });
 
   factory Child.fromJson(Map<String, dynamic> json) => Child(
@@ -83,11 +79,11 @@ class Child {
     pemantauanparentid: json["pemantauanparentid"],
     description: json["description"],
     sequence: json["sequence"],
-    createdAt: json["created_at"],
-    updatedAt: json["updated_at"],
+    createdAt: json["created_at"] != null ? DateTime.tryParse(json["created_at"]) : null,
+    updatedAt: json["updated_at"] != null ? DateTime.tryParse(json["updated_at"]) : null,
     norec: json["norec"],
-    status: json["status"],
     userid: json["userid"],
+    status: json["status"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -96,21 +92,21 @@ class Child {
     "pemantauanparentid": pemantauanparentid,
     "description": description,
     "sequence": sequence,
-    "created_at": createdAt,
-    "updated_at": updatedAt,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
     "norec": norec,
-    "status": status,
     "userid": userid,
+    "status": status,
   };
 }
 
 class Parent {
   int? id;
-  String? statusenabled;
+  int? statusenabled;
   String? description;
-  String? sequence;
-  dynamic createdAt;
-  dynamic updatedAt;
+  int? sequence;
+  DateTime? createdAt;
+  DateTime? updatedAt;
 
   Parent({
     this.id,
@@ -126,8 +122,8 @@ class Parent {
     statusenabled: json["statusenabled"],
     description: json["description"],
     sequence: json["sequence"],
-    createdAt: json["created_at"],
-    updatedAt: json["updated_at"],
+    createdAt: json["created_at"] != null ? DateTime.tryParse(json["created_at"]) : null,
+    updatedAt: json["updated_at"] != null ? DateTime.tryParse(json["updated_at"]) : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -135,19 +131,7 @@ class Parent {
     "statusenabled": statusenabled,
     "description": description,
     "sequence": sequence,
-    "created_at": createdAt,
-    "updated_at": updatedAt,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
   };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

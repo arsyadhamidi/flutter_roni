@@ -42,9 +42,7 @@ class KonkordansiProvider extends ChangeNotifier {
         listPemantauan![index].child != null &&
         listPemantauan![index].child!.isNotEmpty &&
         listPemantauan![index].child![childIndex] != null) {
-      listPemantauan![index].child![childIndex].status = value
-          ? '1'
-          : '0';
+      listPemantauan![index].child![childIndex].status = value ? 1 : 0;
       notifyListeners();
 
       await updateDataPemantauan(

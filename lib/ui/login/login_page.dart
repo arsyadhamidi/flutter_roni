@@ -37,7 +37,7 @@ class LoginPageView extends StatelessWidget {
 
                       // Email Address
                       SizedBox(height: 30),
-                      Text("Email Address",
+                      Text("Nomor Telepon",
                           style:
                               GoogleFonts.poppins(fontWeight: FontWeight.w500)),
                       SizedBox(height: 10),

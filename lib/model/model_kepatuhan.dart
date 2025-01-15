@@ -34,9 +34,9 @@ class ModelKepatuhan {
 
 class Data {
   int? norec;
-  String? statusenabled;
-  String? userid;
-  String? status;
+  int? statusenabled;
+  int? userid;
+  int? status;
   DateTime? createdAt;
   DateTime? updatedAt;
 

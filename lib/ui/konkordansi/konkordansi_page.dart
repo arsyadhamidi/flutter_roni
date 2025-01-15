@@ -216,7 +216,7 @@ class KonkordansiPage extends StatelessWidget {
                                                         ),
                                                         Switch(
                                                           activeColor: Colors.green,
-                                                          value: parentIndex.child![childIndex].status == '1',
+                                                          value: parentIndex.child![childIndex].status == 1,
                                                           onChanged: (bool value) {
                                                             konProvider.toggleSwitch(index, childIndex, value);
                                                           },
@@ -224,7 +224,7 @@ class KonkordansiPage extends StatelessWidget {
                                                         Text(
                                                           parentIndex.child![childIndex]
                                                                       .status ==
-                                                                  '1'
+                                                                  1
                                                               ? 'Ya'
                                                               : 'Tidak',
                                                           style: TextStyle(
@@ -232,7 +232,7 @@ class KonkordansiPage extends StatelessWidget {
                                                                         .child![
                                                                             childIndex]
                                                                         .status ==
-                                                                    '1'
+                                                                    1
                                                                 ? Colors.green
                                                                 : Colors.red,
                                                           ),
