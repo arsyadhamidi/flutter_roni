@@ -78,83 +78,38 @@ class AkunPageView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 25),
-                  InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => BiodataDiriPage()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Card(
-                        color: Colors.white,
-                        child: ListTile(
-                          leading: Icon(Icons.account_circle_sharp, size: 30, color: Colors.red,),
-                          title: Text("Biodata Diri", style: GoogleFonts.poppins(),),
-                          trailing: Icon(Icons.arrow_forward_ios_outlined),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Card(
-                      color: Colors.white,
-                      child: ListTile(
-                        leading: Icon(Icons.insert_comment_sharp, size: 30, color: Colors.orange,),
-                        title: Text("Faq", style: GoogleFonts.poppins(),),
-                        trailing: Icon(Icons.arrow_forward_ios_outlined),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Card(
-                      color: Colors.white,
-                      child: ListTile(
-                        leading: Icon(Icons.favorite, size: 30, color: Colors.green,),
-                        title: Text("Riwayat", style: GoogleFonts.poppins(),),
-                        trailing: Icon(Icons.arrow_forward_ios_outlined),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Card(
-                      color: Colors.white,
-                      child: ListTile(
-                        leading: Icon(Icons.edit, size: 30, color: Colors.blue,),
-                        title: Text("Edit Profile", style: GoogleFonts.poppins(),),
-                        trailing: Icon(Icons.arrow_forward_ios_outlined),
-                      ),
-                    ),
-                  ),
                   Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: MaterialButton(
-                      onPressed: akunProvider.isLoading ? null : () async {
-                        akunProvider.logoutAuth(context);
-                        // var prefs = await SharedPreferences.getInstance();
-                        // prefs.clear();
-                        // Navigator.pushAndRemoveUntil(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => SplashScreenPageView()),
-                        //         (route) => false);
-                      }, child: akunProvider.isLoading
-                        ? CircularProgressIndicator(
-                        valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.blue)) :Text("Keluar", style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w600),),
+                      onPressed: akunProvider.isLoading
+                          ? null
+                          : () async {
+                              akunProvider.logoutAuth(context);
+                              // var prefs = await SharedPreferences.getInstance();
+                              // prefs.clear();
+                              // Navigator.pushAndRemoveUntil(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => SplashScreenPageView()),
+                              //         (route) => false);
+                            },
+                      child: akunProvider.isLoading
+                          ? CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.blue))
+                          : Text(
+                              "Keluar",
+                              style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            ),
                       minWidth: double.infinity,
                       height: 48,
                       color: Color.fromRGBO(55, 168, 53, 1),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide.none
-                      ),
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide.none),
                     ),
                   ),
                 ],

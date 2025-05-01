@@ -1,4 +1,4 @@
-package com.example.roni_api
+package com.fiqartamin.roni_api
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -37,32 +36,6 @@ class DashboardPageView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 25),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                CupertinoIcons.location_solid,
-                                color: Colors.red,
-                                size: 35,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Lokasi",
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.grey, fontSize: 12)),
-                                  Text(
-                                    "${dashboardProvider.lokasi}",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 25),
                           Container(
                             height: 150,
                             width: double.infinity,
@@ -78,7 +51,7 @@ class DashboardPageView extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: 200,
+                                    width: 150,
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -131,7 +104,7 @@ class DashboardPageView extends StatelessWidget {
                                         padding: const EdgeInsets.all(20),
                                         child: Image.asset(
                                             "assets/images/edukasi.png",
-                                            scale: 2),
+                                            scale: 3),
                                       ),
                                     ),
                                     SizedBox(height: 6),
@@ -162,7 +135,7 @@ class DashboardPageView extends StatelessWidget {
                                         padding: const EdgeInsets.all(20),
                                         child: Image.asset(
                                             "assets/images/konkordansi.png",
-                                            scale: 9),
+                                            scale: 10),
                                       ),
                                     ),
                                     SizedBox(height: 6),
@@ -193,7 +166,7 @@ class DashboardPageView extends StatelessWidget {
                                         padding: const EdgeInsets.all(20),
                                         child: Image.asset(
                                             "assets/images/kepatuhan.png",
-                                            scale: 9),
+                                            scale: 10),
                                       ),
                                     ),
                                     SizedBox(height: 6),
@@ -394,15 +367,17 @@ class DashboardPageView extends StatelessWidget {
                                     final berita =
                                         dashboardProvider.filteredList?[index];
                                     return InkWell(
-                                      onTap: (){
-                                        launch(berita?.parent?.child?[0].url ?? '-');
+                                      onTap: () {
+                                        launch(berita?.parent?.child?[0].url ??
+                                            '-');
                                       },
                                       child: Card(
                                         color: Colors.white,
                                         shape: RoundedRectangleBorder(
                                           side: BorderSide(
                                               color: Colors.grey.shade300),
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(10),
@@ -431,9 +406,11 @@ class DashboardPageView extends StatelessWidget {
                                                     width: 200,
                                                     child: Text(
                                                       "${berita?.parent?.child?[0].title ?? ''}",
-                                                      style: GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FontWeight.w500),
+                                                      style:
+                                                          GoogleFonts.poppins(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500),
                                                       maxLines: 3,
                                                       overflow:
                                                           TextOverflow.ellipsis,
