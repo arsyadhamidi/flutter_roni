@@ -403,7 +403,7 @@ class DashboardPageView extends StatelessWidget {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Container(
-                                                    width: 200,
+                                                    width: 150,
                                                     child: Text(
                                                       "${berita?.parent?.child?[0].title ?? ''}",
                                                       style:
