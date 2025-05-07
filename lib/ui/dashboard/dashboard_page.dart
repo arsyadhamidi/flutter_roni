@@ -74,7 +74,8 @@ class DashboardPageView extends StatelessWidget {
                                     ),
                                   ),
                                   Lottie.asset(
-                                    'assets/animations/animasi.json', // path to your Lottie animation file
+                                    'assets/animations/animasi.json',
+                                    // path to your Lottie animation file
                                     height: 100, // adjust height as needed
                                     width: 100, // adjust width as needed
                                     fit: BoxFit.cover,
@@ -390,8 +391,11 @@ class DashboardPageView extends StatelessWidget {
                                                   borderRadius:
                                                       BorderRadius.circular(20),
                                                   image: DecorationImage(
+                                                    // image: NetworkImage(
+                                                    //   "${berita?.parent?.child?[0].urlToImage ?? ''}",
+                                                    // ),
                                                     image: NetworkImage(
-                                                      "${berita?.parent?.child?[0].urlToImage ?? ''}",
+                                                      "https://th.bing.com/th/id/OIP.2SMLXEA_MU2iBbjDZ8vcqgHaHa?cb=iwc1&rs=1&pid=ImgDetMain",
                                                     ),
                                                     fit: BoxFit.cover,
                                                   ),

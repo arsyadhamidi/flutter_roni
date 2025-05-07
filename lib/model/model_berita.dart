@@ -99,7 +99,8 @@ class Child {
     title: json["title"],
     description: json["description"],
     url: json["url"],
-    urlToImage: json["urlToImage"],
+    // urlToImage: json["urlToImage"],
+    urlToImage: null,
     publishedAt: json["publishedAt"] == null ? null : DateTime.parse(json["publishedAt"]),
     content: json["content"],
   );

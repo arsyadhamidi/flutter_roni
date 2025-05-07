@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geocoding/geocoding.dart';
+// import 'package:geolocator/geolocator.dart';
 import 'package:roni_api/model/model_berita.dart';
 import 'package:roni_api/network/network_provider.dart';
 
@@ -26,7 +26,7 @@ class DashboardProvider extends ChangeNotifier {
   Future<void> initializeData() async {
     try {
       await listDataBerita();
-      await getCurrentLocation();
+      // await getCurrentLocation();
     } catch (e) {
       print('Error initializing data: $e');
     }
@@ -78,40 +78,40 @@ class DashboardProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getCurrentLocation() async {
-    try {
-      LocationPermission permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
-          print('Izin lokasi ditolak');
-          return;
-        }
-      }
-
-      Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
-
-      List<Placemark> placemarks = await placemarkFromCoordinates(
-        position.latitude,
-        position.longitude,
-      );
-
-      if (placemarks.isNotEmpty) {
-        String city = placemarks[0].subAdministrativeArea ?? 'Unknown';
-        String province = placemarks[0].administrativeArea ?? 'Unknown';
-
-        lokasi = "$city, $province";
-        notifyListeners();
-        print("lokasi : $lokasi");
-      } else {
-        print('Placemarks is empty');
-      }
-    } catch (e) {
-      print('Error Testing: $e');
-      print('Error: $lokasi');
-    }
-  }
+  // Future<void> getCurrentLocation() async {
+  //   try {
+  //     LocationPermission permission = await Geolocator.checkPermission();
+  //     if (permission == LocationPermission.denied) {
+  //       permission = await Geolocator.requestPermission();
+  //       if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
+  //         print('Izin lokasi ditolak');
+  //         return;
+  //       }
+  //     }
+  //
+  //     Position position = await Geolocator.getCurrentPosition(
+  //       desiredAccuracy: LocationAccuracy.high,
+  //     );
+  //
+  //     List<Placemark> placemarks = await placemarkFromCoordinates(
+  //       position.latitude,
+  //       position.longitude,
+  //     );
+  //
+  //     if (placemarks.isNotEmpty) {
+  //       String city = placemarks[0].subAdministrativeArea ?? 'Unknown';
+  //       String province = placemarks[0].administrativeArea ?? 'Unknown';
+  //
+  //       lokasi = "$city, $province";
+  //       notifyListeners();
+  //       print("lokasi : $lokasi");
+  //     } else {
+  //       print('Placemarks is empty');
+  //     }
+  //   } catch (e) {
+  //     print('Error Testing: $e');
+  //     print('Error: $lokasi');
+  //   }
+  // }
 }
 

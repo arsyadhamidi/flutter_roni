@@ -28,5 +28,6 @@ class EdukasiProvider extends ChangeNotifier{
       isLoading = true;
       notifyListeners();
     }
+    return null;
   }
 }
